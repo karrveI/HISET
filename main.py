@@ -24,7 +24,8 @@ def main():
     if not used:
         toast = ToastNotifier()
         toast.show_toast(name, "check the importance of the day>>>", icon_path=icon, duration=10, callback_on_click=open_web)
-    
+    else:
+        open_web()
     sys.exit()
     
 def open_web():
