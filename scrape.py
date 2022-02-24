@@ -36,6 +36,5 @@ class Scrape:
         return data
     
     def to_json(self, data) -> None: #save on JSON format to use on ./web
-        data = {"events": data}
         with open(self.json_path, "w") as f:
             json.dump(data, f)

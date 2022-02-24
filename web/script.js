@@ -71,7 +71,8 @@ const Accordion = React.createClass({ displayName: "Accordion",
 
   } });
 
-
-ReactDOM.render( /*#__PURE__*/
-React.createElement(App, null),
-document.getElementById('accordion'));
+$(document).ready(function () {
+  ReactDOM.render( /*#__PURE__*/
+  React.createElement(App, null),
+  document.getElementById('accordion'));
+});
