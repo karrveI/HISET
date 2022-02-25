@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from time import sleep
 from config import *
 from win10toast import ToastNotifier
@@ -8,16 +9,18 @@ import sys
 from PyQt5.QtWidgets import QApplication
 def main():
 
-    data = Scrape()
+    try:
+        data = Scrape()
     
-    if data.webdate != data.localdate:
-        events = data.get_events()
-        data.to_json(events)
-
+        if data.webdate != data.localdate:
+            events = data.get_events()
+            data.to_json(events)
         with open("used.txt", "w") as f:
             f.write("0")
         with open("lastUsed.txt" ,"w") as f:
             f.write(data.webdate)
+    except Exception:
+        pass
 
     with open("used.txt", "r") as f:
         used = int(f.read())
